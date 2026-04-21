@@ -6,6 +6,23 @@ import { MapPin } from "lucide-react";
 
 const locations = [
   {
+    id: "indiana",
+    name: "Indiana",
+    city: "Active Campus",
+    tag: "Revenue Generating",
+    status: "Live",
+    nearTerm: "5 MW",
+    nearTermLabel: "Active",
+    longTerm: "20 MW by 2028",
+    special: "Fortune 500 Demand",
+    highlights: [
+      "5 MW live → +2 MW year-end → +13 MW by 2028",
+      "4+ acres secured for expansion",
+      "Fast utility execution, no spec risk",
+      "AI inference, enterprise colocation, mid-market hyperscalers",
+    ],
+  },
+  {
     id: "louisiana",
     name: "Louisiana",
     city: "Bastrop, LA",
@@ -19,22 +36,6 @@ const locations = [
       "Two 12\" pipelines on-site; 40 MW gas plant (18-mo)",
       "350 MW grid commitment within 48 months",
       "400+ MW AI training campus capable",
-    ],
-  },
-  {
-    id: "indiana",
-    name: "Indiana",
-    city: "Active Campus",
-    tag: "Revenue Generating",
-    status: "Live",
-    nearTerm: "5 MW",
-    longTerm: "20 MW by 2028",
-    special: "Fortune 500 Demand",
-    highlights: [
-      "5 MW live → +2 MW year-end → +13 MW by 2028",
-      "4+ acres secured for expansion",
-      "Fast utility execution, no spec risk",
-      "AI inference, enterprise colocation, mid-market hyperscalers",
     ],
   },
   {
@@ -72,7 +73,7 @@ const locations = [
 ];
 
 export default function Locations() {
-  const [active, setActive] = useState("louisiana");
+  const [active, setActive] = useState("indiana");
   const activeLocation = locations.find((l) => l.id === active)!;
 
   return (
@@ -161,7 +162,7 @@ export default function Locations() {
 
               <div className="grid grid-cols-2 gap-4 mb-6">
                 <div className="p-4 rounded-xl bg-white border border-[rgba(22,163,74,0.15)]">
-                  <div className="text-xs text-[#4A6B52] mb-1">Near-Term</div>
+                  <div className="text-xs text-[#4A6B52] mb-1">{(activeLocation as typeof activeLocation & { nearTermLabel?: string }).nearTermLabel ?? "Near-Term"}</div>
                   <div className="text-2xl font-bold text-[#16A34A]">{activeLocation.nearTerm}</div>
                 </div>
                 <div className="p-4 rounded-xl bg-white border border-[rgba(22,163,74,0.1)]">

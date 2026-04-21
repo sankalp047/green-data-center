@@ -5,10 +5,8 @@ import CapacityTimeline from "@/components/CapacityTimeline";
 import Facilities from "@/components/Facilities";
 import Locations from "@/components/Locations";
 import HybridPower from "@/components/HybridPower";
-import India from "@/components/India";
 import WhyInvest from "@/components/WhyInvest";
 import Partnership from "@/components/Partnership";
-import Requirements from "@/components/Requirements";
 import Leadership from "@/components/Leadership";
 import Contact from "@/components/Contact";
 
@@ -22,10 +20,8 @@ export default function Home() {
       <Facilities />
       <Locations />
       <HybridPower />
-      <India />
       <WhyInvest />
       <Partnership />
-      <Requirements />
       <Leadership />
       <Contact />
     </main>

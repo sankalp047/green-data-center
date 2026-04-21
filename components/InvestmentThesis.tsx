@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Zap, Layers, DollarSign, GitMerge, Globe2 } from "lucide-react";
+import { Zap, Layers, DollarSign, GitMerge } from "lucide-react";
 
 const pillars = [
   {
@@ -27,12 +27,6 @@ const pillars = [
     title: "Hybrid Strategy",
     body: "Lower LCOE, faster delivery, baseload reliability. Dual inventory sources compress development timelines.",
     accent: "Grid + Gas",
-  },
-  {
-    icon: Globe2,
-    title: "Global Scalability",
-    body: "U.S. model replicated in India. Proven across 4 U.S. markets — a repeatable playbook at scale.",
-    accent: "U.S. + India",
   },
 ];
 
@@ -72,7 +66,7 @@ export default function InvestmentThesis() {
           </motion.p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid sm:grid-cols-2 gap-4">
           {pillars.map((p, i) => {
             const Icon = p.icon;
             return (
@@ -82,9 +76,7 @@ export default function InvestmentThesis() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-80px" }}
                 transition={{ duration: 0.6, delay: i * 0.1, ease: "easeOut" as const }}
-                className={`group relative p-7 rounded-2xl bg-[#F8FAF8] border border-[rgba(22,163,74,0.12)] hover:border-[rgba(22,163,74,0.3)] transition-all duration-500 hover:bg-white hover:shadow-card-hover cursor-default ${
-                  i === 4 ? "lg:col-start-2" : ""
-                }`}
+                className="group relative p-7 rounded-2xl bg-[#F8FAF8] border border-[rgba(22,163,74,0.12)] hover:border-[rgba(22,163,74,0.3)] transition-all duration-500 hover:bg-white hover:shadow-card-hover cursor-default"
               >
                 <div className="relative">
                   <div className="w-10 h-10 rounded-xl bg-[rgba(22,163,74,0.1)] flex items-center justify-center mb-5 group-hover:bg-[rgba(22,163,74,0.16)] transition-colors duration-300">

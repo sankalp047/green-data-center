@@ -37,7 +37,7 @@ export default function Hero() {
       {/* Subtle green tint at bottom */}
       <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-[#040D07]/60 to-transparent" />
 
-      <motion.div style={{ y, opacity }} className="relative z-10 max-w-7xl mx-auto px-6 lg:px-10 pt-28 pb-16">
+      <motion.div style={{ y, opacity }} className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-10 pt-28 pb-16">
         {/* Market tags */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -56,8 +56,8 @@ export default function Hero() {
           ))}
         </motion.div>
 
-        <div className="grid lg:grid-cols-[1fr_auto] gap-12 lg:gap-20 items-end">
-          <div>
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-8 lg:gap-20 items-end">
+          <div className="min-w-0">
             <motion.h1
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
@@ -111,7 +111,7 @@ export default function Hero() {
             initial={{ opacity: 0, x: 40 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
-            className="flex flex-row lg:flex-col gap-4 lg:mb-2"
+            className="flex flex-row lg:flex-col gap-3 lg:gap-4 lg:mb-2"
           >
             {stats.map((s, i) => (
               <motion.div
@@ -119,9 +119,9 @@ export default function Hero() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.5 + i * 0.1, ease: [0.22, 1, 0.36, 1] }}
-                className="min-w-[120px] lg:min-w-0 px-5 py-4 bg-white/10 border border-white/20 rounded-2xl backdrop-blur-md"
+                className="flex-1 lg:flex-none px-3 lg:px-5 py-3 lg:py-4 bg-white/10 border border-white/20 rounded-2xl backdrop-blur-md min-w-0"
               >
-                <div className="text-3xl font-bold text-white leading-none">
+                <div className="text-2xl lg:text-3xl font-bold text-white leading-none">
                   {s.value}
                   <span className="text-[#22C55E] text-xl">{s.unit}</span>
                 </div>
@@ -136,9 +136,9 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.8 }}
-          className="mt-16 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4"
+          className="mt-16 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 overflow-hidden"
         >
-          <p className="text-xs tracking-[0.25em] text-white/40 uppercase font-medium">
+          <p className="text-xs tracking-wide lg:tracking-[0.25em] text-white/40 uppercase font-medium">
             Multi-State · Grid + Natural Gas Hybrid · 700+ MW Pipeline
           </p>
           <div className="flex items-center gap-2">
