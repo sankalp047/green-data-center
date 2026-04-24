@@ -1,69 +1,43 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { Building2, Zap, DollarSign, Cpu } from "lucide-react";
 
-const leaders = [
+const expertise = [
   {
-    initial: "P",
-    name: "Poorvesh Thakkar",
-    title: "CEO, Thakkar Developers",
-    bullets: [
-      "Technology and Real Estate Developer — 15 years",
-      "Leading over $1 billion real estate development",
-      "10 years of Technology Expertise",
+    icon: Building2,
+    label: "Real Estate & Development",
+    points: [
+      "15–20+ years in technology and real estate development",
+      "Leading over $1 billion in real estate development",
+      "Scaled enterprises from early stage to 500+ employees worldwide",
     ],
   },
   {
-    initial: "B",
-    name: "Bharat Kumar",
-    title: "Former Managing Director, Energy Sector",
-    bullets: [
-      "Energy infrastructure leadership",
-      "Large-scale Energy Project Deployment",
-      "Global Power and Energy",
+    icon: Zap,
+    label: "Energy Infrastructure",
+    points: [
+      "Former Managing Director–level energy sector leadership",
+      "Large-scale energy project deployment",
+      "Global power and energy expertise",
     ],
   },
   {
-    initial: "S",
-    name: "Saumil Thakkar",
-    title: "Group CEO, FunAsia & Thakkar Group",
-    bullets: [
-      "Technology and Real Estate Developer — 20 years",
-      "Expertise in Financing and Business Development",
-      "Transformed Enterprise from 10 to 500 employees Worldwide",
+    icon: Cpu,
+    label: "Technology & AI",
+    points: [
+      "Former AI leadership at Fortune 500 financial institutions",
+      "Large-scale systems and AI deployment",
+      "Led $8B global technology enterprises with 300,000+ employees",
     ],
   },
   {
-    initial: "S",
-    name: "Shekar Katuri",
-    title: "Former AI Lead, Bank of America",
-    bullets: [
-      "AI technology leadership",
-      "Large-scale systems & AI deployment",
-      "Fortune 500 technology strategy",
-    ],
-  },
-];
-
-const techLeaders = [
-  {
-    initial: "A",
-    name: "Abidali Neemuchwala",
-    title: "Former CEO, Wipro Ltd.",
-    bullets: [
-      "Led $8B global technology enterprise",
-      "300,000+ employee organization",
-      "Scaled global digital transformation",
-    ],
-  },
-  {
-    initial: "G",
-    name: "Gurshaman Baweja",
-    title: "Former CIO, Texas Instruments",
-    bullets: [
-      "Global technology infrastructure leadership",
-      "Large-scale systems & Chip Manufacturing",
-      "Fortune 500 technology strategy",
+    icon: DollarSign,
+    label: "Finance & Business Development",
+    points: [
+      "Expertise in institutional financing and capital markets",
+      "Fortune 500 technology strategy and enterprise transformation",
+      "Global digital transformation at scale",
     ],
   },
 ];
@@ -85,36 +59,6 @@ const partners = [
     desc: "Sovereign wealth funds, infrastructure PE, and pension capital. Long-tenor patient capital aligned with national infrastructure timelines.",
   },
 ];
-
-function LeaderCard({ person, delay }: { person: typeof leaders[0]; delay: number }) {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 24 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-60px" }}
-      transition={{ duration: 0.55, delay, ease: [0.22, 1, 0.36, 1] }}
-      className="group p-6 rounded-2xl bg-white border border-[rgba(22,163,74,0.12)] hover:border-[rgba(22,163,74,0.3)] hover:shadow-[0_4px_24px_rgba(0,0,0,0.07)] transition-all duration-400"
-    >
-      <div className="flex items-center gap-4 mb-5">
-        <div className="w-12 h-12 rounded-full bg-[rgba(22,163,74,0.12)] border-2 border-[rgba(22,163,74,0.25)] flex items-center justify-center flex-shrink-0">
-          <span className="text-lg font-bold text-[#16A34A]">{person.initial}</span>
-        </div>
-        <div>
-          <h4 className="font-bold text-[#111811] leading-tight">{person.name}</h4>
-          <p className="text-xs text-[#16A34A] font-semibold mt-0.5">{person.title}</p>
-        </div>
-      </div>
-      <div className="space-y-2">
-        {person.bullets.map((b, i) => (
-          <div key={i} className="flex items-start gap-2.5">
-            <div className="flex-shrink-0 mt-1.5 w-1 h-1 rounded-full bg-[#16A34A]" />
-            <span className="text-xs text-[#4A6B52] leading-relaxed">{b}</span>
-          </div>
-        ))}
-      </div>
-    </motion.div>
-  );
-}
 
 export default function Leadership() {
   return (
@@ -154,7 +98,7 @@ export default function Leadership() {
           </motion.p>
         </div>
 
-        {/* Leadership team */}
+        {/* Leadership summary */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -164,11 +108,48 @@ export default function Leadership() {
         >
           Leadership Team
         </motion.div>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-14">
-          {leaders.map((p, i) => (
-            <LeaderCard key={p.name} person={p} delay={0.1 + i * 0.08} />
-          ))}
-        </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
+          className="p-8 rounded-2xl bg-white border border-[rgba(22,163,74,0.12)] mb-14"
+        >
+          <p className="text-[#4A6B52] text-sm leading-relaxed mb-8 max-w-2xl">
+            Our leadership brings decades of combined experience across real estate development, energy infrastructure, AI technology, and institutional finance — with a track record of building and scaling global enterprises.
+          </p>
+          <div className="grid sm:grid-cols-2 gap-6">
+            {expertise.map((area, i) => {
+              const Icon = area.icon;
+              return (
+                <motion.div
+                  key={area.label}
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-60px" }}
+                  transition={{ delay: 0.3 + i * 0.08, ease: [0.22, 1, 0.36, 1] }}
+                  className="flex items-start gap-4"
+                >
+                  <div className="flex-shrink-0 w-9 h-9 rounded-xl bg-[rgba(22,163,74,0.1)] flex items-center justify-center mt-0.5">
+                    <Icon className="w-4 h-4 text-[#16A34A]" strokeWidth={1.75} />
+                  </div>
+                  <div>
+                    <div className="text-xs font-bold text-[#16A34A] uppercase tracking-[0.15em] mb-2">{area.label}</div>
+                    <div className="space-y-1.5">
+                      {area.points.map((pt, j) => (
+                        <div key={j} className="flex items-start gap-2">
+                          <div className="flex-shrink-0 mt-1.5 w-1 h-1 rounded-full bg-[#16A34A] opacity-60" />
+                          <span className="text-xs text-[#4A6B52] leading-relaxed">{pt}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
+        </motion.div>
 
         {/* Strategic Partners */}
         <motion.div
@@ -180,7 +161,7 @@ export default function Leadership() {
         >
           Strategic Partners
         </motion.div>
-        <div className="grid sm:grid-cols-3 gap-4 mb-14">
+        <div className="grid sm:grid-cols-3 gap-4">
           {partners.map((p, i) => (
             <motion.div
               key={p.name}
@@ -195,22 +176,6 @@ export default function Leadership() {
               <p className="text-xs text-[#16A34A] font-semibold mb-3">{p.role}</p>
               <p className="text-xs text-[#4A6B52] leading-relaxed">{p.desc}</p>
             </motion.div>
-          ))}
-        </div>
-
-        {/* Technology Leadership */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ delay: 0.4 }}
-          className="text-xs font-semibold tracking-[0.2em] text-[#8AAA90] uppercase mb-5"
-        >
-          Technology Leadership
-        </motion.div>
-        <div className="grid sm:grid-cols-2 gap-4">
-          {techLeaders.map((p, i) => (
-            <LeaderCard key={p.name} person={p} delay={0.45 + i * 0.1} />
           ))}
         </div>
 
