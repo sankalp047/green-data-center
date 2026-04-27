@@ -13,6 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  icons: { icon: "/logo.png", apple: "/logo.png" },
   title: "The Green Data Center | Sustainable AI Infrastructure",
   description:
     "Power-secured, land-controlled, execution-ready infrastructure for the next generation of AI and enterprise workloads. 700+ MW pipeline across US and India.",

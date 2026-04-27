@@ -2,7 +2,8 @@
 
 import { motion } from "framer-motion";
 import { useRef, useState } from "react";
-import { Zap, Send, CheckCircle2, AlertCircle } from "lucide-react";
+import { Send, CheckCircle2, AlertCircle } from "lucide-react";
+import Image from "next/image";
 
 const people = [
   {
@@ -270,11 +271,8 @@ export default function Contact() {
       {/* Footer */}
       <div className="border-t border-[rgba(34,197,94,0.08)]">
         <div className="max-w-7xl mx-auto px-6 lg:px-10 py-6 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <div className="flex items-center gap-3">
-            <div className="w-7 h-7 rounded-lg bg-[rgba(34,197,94,0.12)] border border-[rgba(34,197,94,0.2)] flex items-center justify-center">
-              <Zap className="w-3.5 h-3.5 text-[#22C55E]" strokeWidth={2.5} />
-            </div>
-            <span className="text-sm font-bold text-[#F0F4F0]">The Green Data Center</span>
+          <div className="flex items-center">
+            <Image src="/logo.png" alt="Green Data Center" width={100} height={40} className="h-8 w-auto object-contain brightness-0 invert" />
           </div>
           <p className="text-xs text-[#3D5C47] tracking-widest uppercase text-center">
             COPYRIGHT &copy; 2024 GREEN DATA CENTER &mdash; ALL RIGHTS RESERVED.

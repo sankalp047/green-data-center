@@ -2,7 +2,8 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Zap } from "lucide-react";
+import { Menu, X } from "lucide-react";
+import Image from "next/image";
 
 const links = [
   { label: "About", href: "#about" },
@@ -34,14 +35,15 @@ export default function Navbar() {
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 lg:px-10 h-16 flex items-center justify-between">
-          <a href="#" className="flex items-center gap-3 group">
-            <div className={`w-9 h-9 rounded-lg border flex items-center justify-center transition-all duration-300 ${scrolled ? "bg-[rgba(22,163,74,0.1)] border-[rgba(22,163,74,0.2)]" : "bg-white/10 border-white/25"}`}>
-              <Zap className={`w-4 h-4 transition-colors ${scrolled ? "text-[#16A34A]" : "text-white"}`} strokeWidth={2.5} />
-            </div>
-            <div className="leading-none">
-              <div className={`text-[10px] font-semibold tracking-[0.15em] uppercase transition-colors ${scrolled ? "text-[#16A34A]" : "text-[#22C55E]"}`}>The</div>
-              <div className={`text-sm font-bold tracking-wide transition-colors ${scrolled ? "text-[#111811]" : "text-white"}`}>Green Data Center</div>
-            </div>
+          <a href="#" className="flex items-center group">
+            <Image
+              src="/logo.png"
+              alt="Green Data Center"
+              width={120}
+              height={48}
+              className="h-10 w-auto object-contain"
+              priority
+            />
           </a>
 
           <div className="hidden md:flex items-center gap-8">
