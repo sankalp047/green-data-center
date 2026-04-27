@@ -35,13 +35,13 @@ export default function Navbar() {
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 lg:px-10 h-16 flex items-center justify-between">
-          <a href="#" className="flex items-center group">
+          <a href="#" className={`flex items-center group rounded-xl transition-all duration-300 ${!scrolled ? "bg-white/30 backdrop-blur-md px-2 py-1" : ""}`}>
             <Image
               src="/logo.png"
               alt="Green Data Center"
-              width={120}
-              height={48}
-              className="h-10 w-auto object-contain"
+              width={160}
+              height={64}
+              className="h-12 w-auto object-contain"
               priority
             />
           </a>
