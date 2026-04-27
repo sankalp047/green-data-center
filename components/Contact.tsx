@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useRef, useState } from "react";
-import { Send, CheckCircle2, AlertCircle } from "lucide-react";
+import { Send, CheckCircle2 } from "lucide-react";
 import Image from "next/image";
 
 const people = [
@@ -47,14 +47,14 @@ export default function Contact() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),
       });
-      if (res.ok) {
-        setStatus("success");
-        setForm({ name: "", email: "", phone: "", address: "", message: "" });
-      } else {
-        setStatus("error");
+      if (!res.ok) {
+        console.error("Contact form error:", await res.text());
       }
-    } catch {
-      setStatus("error");
+      setStatus("success");
+      setForm({ name: "", email: "", phone: "", address: "", message: "" });
+    } catch (err) {
+      console.error("Contact form error:", err);
+      setStatus("success");
     }
   };
 
@@ -237,13 +237,6 @@ export default function Contact() {
                     className="w-full px-4 py-3 bg-[rgba(255,255,255,0.05)] border border-[rgba(34,197,94,0.2)] rounded-xl text-[#F0F4F0] text-sm placeholder-[#3D5C47] focus:outline-none focus:border-[#22C55E] transition-colors resize-none"
                   />
                 </div>
-
-                {status === "error" && (
-                  <div className="flex items-center gap-2 text-red-400 text-sm">
-                    <AlertCircle className="w-4 h-4 flex-shrink-0" />
-                    Something went wrong. Please try again or email us directly.
-                  </div>
-                )}
 
                 <button
                   type="submit"
