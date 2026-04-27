@@ -42,24 +42,6 @@ const expertise = [
   },
 ];
 
-const partners = [
-  {
-    name: "Green Tech Data Center",
-    role: "Global Technology Partner",
-    desc: "International data center platform providing proprietary green technology, global operations expertise, and institutional capital access.",
-  },
-  {
-    name: "JLL (Jones Lang LaSalle)",
-    role: "Hyperscaler Tenant Platform",
-    desc: "World's leading real estate & DC leasing advisory. Direct relationships with Microsoft, Google, AWS, Meta and all Tier-1 hyperscalers.",
-  },
-  {
-    name: "Global Equity Partners",
-    role: "Institutional Capital Network",
-    desc: "Sovereign wealth funds, infrastructure PE, and pension capital. Long-tenor patient capital aligned with national infrastructure timelines.",
-  },
-];
-
 export default function Leadership() {
   return (
     <section id="leadership" className="py-28 lg:py-36 bg-[#F8FAF8]">
@@ -114,7 +96,7 @@ export default function Leadership() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
-          className="p-8 rounded-2xl bg-white border border-[rgba(22,163,74,0.12)] mb-14"
+          className="p-8 rounded-2xl bg-white border border-[rgba(22,163,74,0.12)]"
         >
           <p className="text-[#4A6B52] text-sm leading-relaxed mb-8 max-w-2xl">
             Our leadership brings decades of combined experience across real estate development, energy infrastructure, AI technology, and institutional finance — with a track record of building and scaling global enterprises.
@@ -150,34 +132,6 @@ export default function Leadership() {
             })}
           </div>
         </motion.div>
-
-        {/* Strategic Partners */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ delay: 0.3 }}
-          className="text-xs font-semibold tracking-[0.2em] text-[#8AAA90] uppercase mb-5"
-        >
-          Strategic Partners
-        </motion.div>
-        <div className="grid sm:grid-cols-3 gap-4">
-          {partners.map((p, i) => (
-            <motion.div
-              key={p.name}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-80px" }}
-              transition={{ delay: 0.35 + i * 0.1 }}
-              className="p-6 rounded-2xl bg-white border border-[rgba(22,163,74,0.12)] hover:border-[rgba(22,163,74,0.3)] hover:shadow-[0_4px_24px_rgba(0,0,0,0.07)] transition-all duration-400"
-            >
-              <div className="w-10 h-1 bg-[#16A34A] rounded-full mb-4" />
-              <h4 className="font-bold text-[#111811] mb-1">{p.name}</h4>
-              <p className="text-xs text-[#16A34A] font-semibold mb-3">{p.role}</p>
-              <p className="text-xs text-[#4A6B52] leading-relaxed">{p.desc}</p>
-            </motion.div>
-          ))}
-        </div>
 
       </div>
     </section>
